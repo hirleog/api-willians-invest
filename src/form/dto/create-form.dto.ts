@@ -1,14 +1,17 @@
 import {
-  IsArray,
+  IsBoolean,
   IsEmail,
   IsNotEmpty,
-  IsNumberString,
   IsOptional,
   IsString,
   Length,
 } from 'class-validator';
 
 export class CreateFormDto {
+  @IsBoolean()
+  @IsOptional()
+  contatado: boolean;
+
   @IsNotEmpty()
   nome: string;
 
@@ -20,4 +23,8 @@ export class CreateFormDto {
 
   @IsNotEmpty()
   telefone: string;
+
+  @IsString()
+  @IsOptional()
+  observacao: string;
 }

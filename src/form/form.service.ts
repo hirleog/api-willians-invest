@@ -2,6 +2,7 @@
 import { Injectable } from '@nestjs/common';
 import { Prisma } from '@prisma/client';
 import { PrismaService } from 'src/prisma/prisma.service';
+import { UpdateFormDto } from './dto/update-form.dto';
 
 @Injectable()
 export class FormService {
@@ -14,6 +15,16 @@ export class FormService {
   async findAll() {
     return this.prisma.formulario.findMany({
       orderBy: { createdAt: 'desc' },
+    });
+  }
+
+  async update(id: number, data: UpdateFormDto) {
+    return this.prisma.formulario.update({
+      where: { id },
+      data: {
+        contatado: data.contatado,
+        observacao: data.observacao,
+      },
     });
   }
 }

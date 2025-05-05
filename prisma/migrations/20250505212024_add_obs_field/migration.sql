@@ -5,6 +5,7 @@ CREATE TABLE `Formulario` (
     `email` VARCHAR(191) NOT NULL,
     `cpf` VARCHAR(191) NOT NULL,
     `telefone` VARCHAR(191) NOT NULL,
+    `Observcao` VARCHAR(191) NOT NULL,
     `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
 
     UNIQUE INDEX `Formulario_cpf_key`(`cpf`),

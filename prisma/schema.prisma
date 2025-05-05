@@ -8,10 +8,12 @@ datasource db {
 }
 
 model Formulario {
-  id        Int      @id @default(autoincrement())
-  nome      String
-  email     String
-  cpf       String   @unique
-  telefone  String
-  createdAt DateTime @default(now())
+  id           Int      @id @default(autoincrement())
+  contatado    Boolean
+  nome         String
+  email        String
+  cpf          String   @unique
+  telefone     String
+  observacao   String
+  createdAt    DateTime @default(now())
 }
