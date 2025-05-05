@@ -6,9 +6,15 @@ import { PrismaService } from './prisma/prisma.service';
 import { FormModule } from './form/form.module';
 import { FormController } from './form/form.controller';
 import { FormService } from './form/form.service';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
-  imports: [FormModule],
+  imports: [
+    FormModule,
+    ConfigModule.forRoot({
+      isGlobal: true, // Faz com que esteja disponível em todo o app
+    }),
+  ],
   controllers: [AppController, FormController, DashboardController],
   providers: [AppService, FormService, FormService, PrismaService],
 })
