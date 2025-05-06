@@ -9,12 +9,42 @@ export class FormController {
 
   @Post()
   create(@Body() data: any) {
-    return this.formularioService.create(data);
+    try {
+      return this.formularioService.create(data);
+    } catch (error) {
+      return {
+        statusCode: 500,
+        message: 'Error details',
+        error:
+          process.env.NODE_ENV === 'development'
+            ? {
+                message: error.message,
+                stack: error.stack,
+                fullError: error,
+              }
+            : null,
+      };
+    }
   }
 
   @Get()
   findAll() {
-    return this.formularioService.findAll();
+    try {
+      return this.formularioService.findAll();
+    } catch (error) {
+      return {
+        statusCode: 500,
+        message: 'Error details',
+        error:
+          process.env.NODE_ENV === 'development'
+            ? {
+                message: error.message,
+                stack: error.stack,
+                fullError: error,
+              }
+            : null,
+      };
+    }
   }
 
   @Put(':id')

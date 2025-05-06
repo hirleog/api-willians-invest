@@ -1,3 +1,4 @@
+import { HealthController } from './health.controller';
 import { DashboardController } from './dashboard/dashboard.controller';
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
@@ -15,7 +16,12 @@ import { ConfigModule } from '@nestjs/config';
       isGlobal: true, // Faz com que esteja disponível em todo o app
     }),
   ],
-  controllers: [AppController, FormController, DashboardController],
+  controllers: [
+    HealthController,
+    AppController,
+    FormController,
+    DashboardController,
+  ],
   providers: [AppService, FormService, FormService, PrismaService],
 })
 export class AppModule {}

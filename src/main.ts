@@ -16,7 +16,9 @@ async function bootstrap() {
         ]
       : [
           'https://willians-invest.com.br',
-          'https://willians-invest.web.app, http://localhost:4200',
+          'https://willians-invest.web.app',
+          'http://localhost:4200',
+          'https://localhost:4200',
         ],
     credentials: true,
   });
