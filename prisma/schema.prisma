@@ -1,19 +1,21 @@
 generator client {
   provider = "prisma-client-js"
+  output   = "../node_modules/.prisma/client"
 }
 
 datasource db {
-  provider = "mysql"
-  url      = env("DATABASE_URL")
+  provider     = "mysql"
+  url          = env("DATABASE_URL")
+  relationMode = "prisma"
 }
 
 model Formulario {
-  id           Int      @id @default(autoincrement())
-  contatado    Boolean
-  nome         String
-  email        String
-  cpf          String   @unique
-  telefone     String
-  observacao   String
-  createdAt    DateTime @default(now())
+  id         Int      @id @default(autoincrement())
+  contatado  Boolean
+  nome       String
+  email      String
+  cpf        String   @unique
+  telefone   String
+  observacao String
+  createdAt  DateTime @default(now())
 }
