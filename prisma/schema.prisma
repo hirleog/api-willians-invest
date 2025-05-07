@@ -11,11 +11,11 @@ datasource db {
 
 model Formulario {
   id         Int      @id @default(autoincrement())
-  contatado  Boolean
+  contatado  Boolean?
   nome       String
   email      String
   cpf        String   @unique
   telefone   String
-  observacao String
+  observacao String?
   createdAt  DateTime @default(now())
 }
