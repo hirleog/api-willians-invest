@@ -13,7 +13,8 @@ async function bootstrap() {
           'http://localhost:4200',
           'http://localhost:3000',
           'http://localhost:3001',
-          'https://willians-invest.web.app/',
+          'https://willians-invest.web.app',
+          'https://willians-invest.com',
         ]
       : [
           'https://willians-invest.com',
