@@ -27,4 +27,14 @@ export class FormService {
       },
     });
   }
+
+  async remove(id: number): Promise<void> {
+    const form = await this.prisma.formulario.findUnique({ where: { id } });
+
+    if (!form) {
+      throw new Error(`Form with ID ${id} not found`);
+    }
+
+    await this.prisma.formulario.delete({ where: { id } });
+  }
 }
